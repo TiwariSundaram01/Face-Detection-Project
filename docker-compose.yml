@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  face-service:
+    build: .
+    container_name: propjini-face-service
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - API_SECRET_KEY=propjini_face_secret_key_2026
+      - DEFAULT_MODEL=Facenet512
+      - DETECTOR_BACKEND=opencv
+      - THRESHOLD=0.35
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G

@@ -75,12 +75,15 @@ curl -X POST "http://127.0.0.1:80/api/v1/verify-embedding" \\
 ## 🚀 Running the Microservice Locally
 
 ```powershell
-# 1. Navigate to project directory
-cd D:\\Propjini\\propjini-face-service
 
-# 2. Activate Python virtual environment
-.\\.venv\\Scripts\\Activate.ps1
+# Create virtual environment
+python -m venv .venv
 
-# 3. Start Uvicorn on Port 80
-uvicorn app.main:app --host 127.0.0.1 --port 80 --reload
+# Activate virtual environment
+.\.venv\Scripts\Activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+python -m uvicorn app.main:app --host 127.0.0.1 --port 80 --reload
 ```
